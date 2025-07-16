@@ -1,4 +1,4 @@
-\# LeetCode Practice in Python
+# LeetCode Practice in Python
 
 
 
@@ -8,13 +8,13 @@ This repository contains my solutions to selected LeetCode problems.
 
 Each solution includes:
 
-\- Problem link
+- Problem link
 
-\- Approach
+- Approach
 
-\- Time \& space complexity
+- Time \& space complexity
 
-\- Clean, idiomatic Python code
+- Clean, idiomatic Python code
 
 
 
