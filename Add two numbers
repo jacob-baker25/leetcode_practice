@@ -6,6 +6,11 @@ Link: https://leetcode.com/problems/add-two-numbers/description/
 Goal: You are given two non-empty linked lists representing two non-negative integers. 
 The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
 
+Approach: This solution converts the linked lists into integers, sums them, and then converts the sum back into a new linked list.
+
+Time Complexity: O(max(N,M))
+Space Complexity: O(max(N,M))
+
 """
 
 
