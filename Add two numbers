@@ -1,0 +1,50 @@
+"""
+Problem: Add two numbers
+Difficulty: Medium
+Link: https://leetcode.com/problems/add-two-numbers/description/
+
+Goal: You are given two non-empty linked lists representing two non-negative integers. 
+The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+
+"""
+
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        i=j = 0
+        sum1=sum2 = 0
+        current = l1
+        while current is not None: 
+            sum1 = sum1 + current.val*(10**i)
+            i+=1
+            current = current.next
+        current = l2
+        while current is not None: 
+            sum2 = sum2 + current.val*(10**j)
+            j+=1
+            current = current.next
+
+        total_sum = sum1 + sum2
+        if total_sum == 0:
+            return ListNode(0)
+
+        dummy_head = ListNode()
+        current_node = dummy_head
+        while total_sum > 0:
+            digit = total_sum%10
+
+            current_node.next = ListNode(digit)
+
+            current_node = current_node.next
+
+            total_sum //= 10
+        return  dummy_head.next
+
+
+
+        
