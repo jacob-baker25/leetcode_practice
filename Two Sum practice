@@ -6,6 +6,15 @@ Link: https://leetcode.com/problems/two-sum/
 Goal:
 - Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 
+Approach: 
+- Iterates through all possibke pairs of numbers 
+- Uses nested loops: the outer loop (i) picks the first number, and the inner loop (j) picks the second number 
+  from the remaining elements (to avoid using the same element twice and to avoid redundant pairs like (1,2) and (2,1))
+- For each pair (nums[i], nums[j]), it checks if their sum equals the target. If it does, the indices i and j are returned immediately.
+
+- Time complexity: O(n^2)
+- Space complexity: O(1)
+
 """
 
 class Solution:
