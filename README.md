@@ -2,7 +2,7 @@
 
 
 
-This repository contains my solutions to selected LeetCode problems. 
+This repository contains my solutions to selected LeetCode problems. All are done in Python 3.
 
 
 
