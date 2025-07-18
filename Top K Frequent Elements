@@ -1,0 +1,33 @@
+"""
+Problem: Top K Frequent Elements
+Difficulty: Medium
+Link: https://https://leetcode.com/problems/top-k-frequent-elements/
+
+Goal:
+- Given an integer array nums and an integer k, return the k most frequent elements.
+
+Approach: 
+- I found a pretty short solution to this problem
+- First I use Counter(), which counts the number of times each integer appears and 
+- represents that value as a key
+- I then used heapq.nlargest, which returns a list of the largest of a thing
+
+- Time complexity: O(n+mlogk)
+- Space complexity: O(m+k)
+
+"""
+from collections import defaultdict, Counter
+import heapq
+
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        # counts how many of each integer there are
+        count = Counter(nums)
+        
+        # easy way to extract largest groups
+        # k determines how many integers it returns,
+        # count.keys() represents the collection of items that nlargest 
+        # will draw from to find the largest, in this case, the different integers
+        # the key is the function heapq will use to compare each element
+        # count.get() is used to compare they key ("count") of the intgers, instead of the integers themselves
+        return heapq.nlargest(k, count.keys(), key=count.get)
