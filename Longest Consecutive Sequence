@@ -1,0 +1,39 @@
+"""
+Problem: Longest Consecutive Sequence
+Difficulty: Medium
+Link: https://neetcode.io/problems/longest-consecutive-sequence?list=blind75
+
+Goal: Given an array of integers nums, return the length of the longest consecutive sequence of elements that can be formed.
+
+      A consecutive sequence is a sequence of elements in which each element is exactly 1 greater than the previous element. The elements do not have to be consecutive in the original array.
+
+      You must write an algorithm that runs in O(n) time.
+
+Approach: I first create a set of all the integers in the list. Then I go through the set, and look for integers who's value - 1 is not in the set, as these
+          would represent the start of a sequence. I then continuously increase this value by 1, and check if the value is in the set, to see how long this sequence is.
+          In the end I return whatever the longest sequence was. 
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+
+"""
+
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+
+        num_set = set(nums)
+        longest = 0
+
+        for num in num_set:
+            # only starts counting if the number is the start of a streak
+            if num-1 not in num_set:
+                current_num = num
+                current_streak = 1
+                # counts how many consecutive numbers are in the set
+                while current_num+1 in num_set:
+                    current_num += 1
+                    current_streak += 1
+                
+                longest = max(longest, current_streak)
+
+        return longest
