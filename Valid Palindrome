@@ -1,0 +1,34 @@
+"""
+Problem: Valid Palindrome
+Difficulty: Easy
+Link: https://neetcode.io/problems/is-palindrome?list=blind75
+
+Goal: Given a string s, return true if it is a palindrome, otherwise return false.
+
+      A palindrome is a string that reads the same forward and backward. It is also case-insensitive and ignores all non-alphanumeric characters.
+
+Approach: Uses two pointers to traverse the list from beginning and end, and go from one character to the next checking if they are equal. If all opposite characters are
+          equal, it returns true, if any are off, it returns false. 
+
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+"""
+
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        p1 = 0
+        p2 = len(s) -1
+        # each pointer only has to go half way
+        while p1 < p2:
+            # keeps moving pointers until an alnum is found, or pointer goes too far
+            while not s[p1].isalnum() and p1 < p2:
+                p1+=1
+            while not s[p2].isalnum() and p1 < p2:
+                p2-=1
+            # returns false if two characters dont match
+            if s[p1].upper() != s[p2].upper():
+                return False
+            p1+=1
+            p2-=1
+        return True
